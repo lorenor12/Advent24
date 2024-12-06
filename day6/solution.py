@@ -6,14 +6,12 @@ def move(start: np.ndarray, map: np.ndarray) -> (int, int):
     dir_indicator = map[start[0]][start[1]]
     direction = dir_dic[dir_indicator]
     map[start[0]][start[1]] = -1
-    count = 0
     while True:
         next_idx = start + direction
         next_tile = map[next_idx[0]][next_idx[1]]
-        if next_tile != 5 or count > 0:
+        if next_tile != 5:
             map[next_idx[0]][next_idx[1]] = dir_indicator
             return np.array([next_idx[0], next_idx[1]])
-        count += 1
         dir_indicator = dir_indicator + 1 if dir_indicator + 1 < 5 else 1
         direction = dir_dic[dir_indicator]
 
