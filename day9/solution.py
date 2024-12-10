@@ -70,6 +70,7 @@ def compress_disk_without_fragmentation(disk: np.ndarray) -> np.ndarray:
                     i += free_block_size
             else:
                 i += 1
+
         rev_idx += file_block_size
     return disk
 
